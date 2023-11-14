@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>MadLib Story Generator</title>
+    <link rel='stylesheet' href={{url_for('static', filename='style.css')}}>
+</head>
+<body>
+    <div class='container'>
+        <form action="/story" method="post">
+            {% for prompt in prompts %}
+            <label for="{{ prompt }}">{{ prompt.capitalize() }}:
+                <input type="text" name="{{ prompt }}" id="{{ prompt }}" required>
+            </label>
+            <br>
+            {% endfor %}
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+</body>
+</html>
