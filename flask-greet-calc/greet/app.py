@@ -23,11 +23,11 @@ def index():
 def index_welcome():
     return('<h1>Welcome !</h1>')
 
-@app.route('/home')
+@app.route('/welcome/home')
 def index_home():
     return ('<h1>Welcome Home!')
 
-@app.route('/back')
+@app.route('/welcome/back')
 def index_back():
     return('<h1>Welcome back!')
     

@@ -87,6 +87,7 @@ function handleCardClick(e) {
         noClicking = false;
         alert("Game Over! Your Score: " + score);
         restartGame();
+        
     }
 }
 
