@@ -1,0 +1,50 @@
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    margin-top: 20px;
+}
+
+#boggle-board {
+    display: inline-block;
+    margin-bottom: 20px;
+}
+
+.row {
+    display: flex;
+}
+
+.tile {
+    width: 40px;
+    height: 40px;
+    border: 1px solid #333;
+    text-align: center;
+    vertical-align: middle;
+    line-height: 40px;
+    margin: 2px;
+    font-size: 24px;
+    background-color: #f0f0f0;
+    cursor: pointer;
+}
+
+#word-form input[type="text"] {
+    padding: 5px;
+    font-size: 16px;
+    margin-right: 5px;
+}
+
+#word-form button {
+    padding: 5px 10px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+#message {
+    margin-top: 20px;
+    font-size: 18px;
+    color: #333;
+}
+
+#timer, #score {
+    font-size: 20px;
+    margin-top: 10px;
+}

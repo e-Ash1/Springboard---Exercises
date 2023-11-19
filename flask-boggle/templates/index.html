@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Boggle Game</title>
+    <link rel="stylesheet" type='text/css' href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div id="boggle-board">
+        {% for row in board %}
+            <div class="row">
+                {% for letter in row %}
+                    <span class="tile">{{ letter }}</span>
+                {% endfor %}
+            </div>
+        {% endfor %}
+    </div>
+    <form id="word-form">
+        <input type="text" id="word-input" autocomplete="off"/>
+        <button type="submit">Submit Word</button>
+    </form>
+    <div id="message"></div>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="{{ url_for('static', filename='js/app.js') }}"></script>
+</body>
+</html>
