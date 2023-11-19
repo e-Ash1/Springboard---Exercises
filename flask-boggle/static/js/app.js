@@ -7,12 +7,7 @@ document.addEventListener("DOMContentLoaded", function() {
     let gameTimer = 60;
     let wordsUsed = new Set();
 
-
-    console.log("wordForm:", wordForm);
-    console.log("messageDiv:", messageDiv);
-    console.log("timerDiv:", timerDiv);
-    console.log("scoreDiv:", scoreDiv);
-
+    // Timer countdown
     const countdown = setInterval(function() {
         if (gameTimer <= 0) {
             clearInterval(countdown);
@@ -24,31 +19,42 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     }, 1000);
 
-    console.log("wordForm:", wordForm);
-    console.log("messageDiv:", messageDiv);
-    console.log("timerDiv:", timerDiv);
-    console.log("scoreDiv:", scoreDiv);
-
-    //Handles the submit form
+    // Handles the submit form
     wordForm.addEventListener("submit", async function(event) {
         event.preventDefault();
-        //Word fetch from HTML --> Javascript
         let wordInput = document.getElementById("word-input");
-        let word = wordInput.value;
-            //Conditional to determine if value has already been submitted:
-            if (wordsUsed.has(word)) {
-                messageDiv.innerText = "You've already used this word!";
-                return;
-            }
+        let word = wordInput.value.trim().toUpperCase(); // Convert to uppercase to match server-side processing
 
-            
-        let response = await axios.get('/check-word', { params: { word: word } });
+        // Input validation
+        if (!word) {
+            messageDiv.innerText = "Please enter a word.";
+            return;
+        }
+        if (!/^[a-zA-Z]+$/.test(word)) {
+            messageDiv.innerText = "Invalid characters in word.";
+            return;
+        }
+        if (wordsUsed.has(word)) {
+            messageDiv.innerText = "You've already used this word!";
+            return;
+        }
+
+        // Word verification
+        try {
+            let response = await axios.get('/check-word', { params: { word: word } });
             if (response.data.result === "ok") {
                 wordsUsed.add(word);
                 score += word.length;
                 scoreDiv.innerText = `Score: ${score}`;
+                messageDiv.innerText = "Word accepted!";
+            } else {
+                messageDiv.innerText = response.data.result === "not-on-board" ? "Word not on board." : "Invalid word.";
             }
-        messageDiv.innerText = response.data.result;
+        } catch (error) {
+            console.error("Error verifying word:", error);
+            messageDiv.innerText = "Error verifying word. Please try again.";
+        }
+
         wordInput.value = ""; // Clears input after submission
     });
 });

@@ -6,12 +6,25 @@ app.config['SECRET_KEY'] = '#######'
 
 boggle_game = Boggle()
 
+# Load words from file
+with open('words.txt') as f:
+    valid_words = set(f.read().splitlines())
+
+
+
 @app.route('/')
 def homepage():
     """Display the game board."""
     board = boggle_game.make_board()
     session['board'] = board
     return render_template('index.html', board=board)
+
+@app.route('/verify_word', methods=['POST'])
+def verify_word():
+    word = request.json.get('word', '')
+    board = session['board']
+    result = boggle_game.check_valid_word(board,word)
+    return jsonify({'is_valid': result})
 
 @app.route('/check-word')
 def check_word():
