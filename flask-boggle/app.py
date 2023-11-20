@@ -19,12 +19,6 @@ def homepage():
     session['board'] = board
     return render_template('index.html', board=board)
 
-@app.route('/verify_word', methods=['POST'])
-def verify_word():
-    word = request.json.get('word', '')
-    board = session['board']
-    result = boggle_game.check_valid_word(board,word)
-    return jsonify({'is_valid': result})
 
 @app.route('/check-word')
 def check_word():
