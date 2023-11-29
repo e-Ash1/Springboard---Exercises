@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <h2>Edit a user</h2>
+    <form method="POST" action="/users/{{ user.id }}/edit">
+        <label for="first_name">First Name</label>
+        <input type="text" id="first_name" name="first_name" value="{{ user.first_name }}">
+
+        <label for="last_name">Last Name</label>
+        <input type="text" id="last_name" name="last_name" value="{{ user.last_name }}">
+
+        <label for="image_url">Image URL</label>
+        <input type="text" id="image_url" name="image_url" value="{{ user.image_url }}">
+
+        <button type="submit" class="btn btn-success">Save</button>
+        <a href="/users/{{ user.id }}" class="btn btn-secondary">Cancel</a>
+    </form>
+</body>
+</html>
