@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit a Pet</title>
+</head>
+<body>
+    
+{% extends 'base.html' %}
+
+{% block content %}
+    <h2>Edit Pet</h2>
+    <form method="POST">
+        {{ form.hidden_tag() }}
+        {{ form.photo_url.label }} {{ form.photo_url }}<br>
+        {{ form.notes.label }} {{ form.notes }}<br>
+        {{ form.available.label }} {{ form.available }}<br>
+        <input type="submit" value="Edit Pet">
+    </form>
+{% endblock %}
+
+
+</body>
+</html>
