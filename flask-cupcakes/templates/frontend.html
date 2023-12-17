@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cupcake App</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <link rel="stylesheet" href="../static/css/style.css">
+</head>
+<body>
+    <h1>Cupcake App</h1>
+
+    <form id="new-cupcake-form">
+        <input type="text" id="flavor" name="flavor" placeholder="Flavor" required>
+        <input type="text" id="size" name="size" placeholder="Size" required>
+        <input type="number" id="rating" name="rating" placeholder="Rating" min="1" max="10" required>
+        <input type="url" id="image" name="image" placeholder="Image URL">
+        <button type="submit">Add Cupcake</button>
+    </form>
+
+    <h2>Cupcakes</h2>
+    <ul id="cupcakes-list">
+        <!-- Cupcakes will be added here -->
+    </ul>
+
+    <script src="../static/js/app.js"></script>
+</body>
+</html>
