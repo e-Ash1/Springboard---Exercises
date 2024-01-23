@@ -4,11 +4,15 @@ from flask import Flask, flash, redirect, render_template, request, url_for
 from models import db, connect_db, User
 
 app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://postgres:password@localhost/blogly'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://postgres:admin@localhost/blogly'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.config['SQLALCHEMY_ECHO'] = True
 
 app.config['SECRET_KEY'] = '#######'
+
+with app.app_context():
+        connect_db(app)
+        db.create_all()
 
 
 
@@ -70,9 +74,6 @@ def delete_user(user_id):
 
 
 if __name__ == "__main__":
-    with app.app_context():
-        connect_db(app)
-        db.create_all()
     app.run(debug=True)
 
     
