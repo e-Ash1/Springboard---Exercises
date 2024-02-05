@@ -1,0 +1,14 @@
+[
+  {
+    "name": "popsicle",
+    "price": 1.45
+  },
+  {
+    "name": "cheerios",
+    "price": 3.4
+  },
+  {
+    "name": "Updated Test Item",
+    "price": 2.99
+  }
+]
