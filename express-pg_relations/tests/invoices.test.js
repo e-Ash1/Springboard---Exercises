@@ -27,7 +27,6 @@ describe("GET /invoices", () => {
 
 describe("GET /invoices/:id", () => {
   test("Gets a single invoice by ID", async () => {
-    // Assuming '1' is a valid invoice ID. Adjust as necessary.
     const response = await request(app).get("/invoices/1");
     expect(response.statusCode).toBe(200);
     expect(response.body).toHaveProperty("invoice");
