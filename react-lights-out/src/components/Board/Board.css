@@ -1,0 +1,36 @@
+.Board {
+  border-collapse: collapse;
+  margin: 0 auto; 
+  background-color: #333; 
+}
+
+.Board tr {
+  border: none;
+}
+
+.Cell {
+  width: 60px;
+  height: 60px; 
+  border: 2px solid #555; 
+  background-color: #000; 
+  cursor: pointer; 
+}
+
+.Cell-lit {
+  background-color: #ffc107; 
+}
+
+
+.Board-container {
+  padding: 20px;
+  display: flex;
+  justify-content: center; 
+}
+
+
+@media (max-width: 600px) {
+  .Cell {
+    width: 40px; 
+    height: 40px;
+  }
+}
