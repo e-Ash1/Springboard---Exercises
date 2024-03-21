@@ -1,0 +1,14 @@
+.deck-container {
+    position: relative;
+    width: 200px; 
+    height: 300px;
+    overflow: hidden;
+  }
+  
+  .card {
+    position: absolute;
+    top: 0;
+    left: 0;
+    transition: all 0.3s ease;
+  }
+  
