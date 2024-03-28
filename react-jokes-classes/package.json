@@ -1,0 +1,41 @@
+{
+  "name": "icanhazdadjokes",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "@fortawesome/fontawesome-free": "*",
+    "@testing-library/jest-dom": "*",
+    "@testing-library/react": "*",
+    "@testing-library/user-event": "*",
+    "autoprefixer": "^10.4.19",
+    "axios": "*",
+    "node-check-update": "^0.0.0",
+    "postcss": "^8.4.38",
+    "react": "*",
+    "react-dom": "*",
+    "react-scripts": "*",
+    "react-spinners": "*",
+    "tailwindcss": "^3.4.3"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
+}
